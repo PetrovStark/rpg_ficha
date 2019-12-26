@@ -12,6 +12,24 @@ class Personagens extends StatefulWidget {
 
 class _PersonagensState extends State<Personagens> {
 
+  var charinfo = [
+    {
+      "field_name": "NOME",
+      "field_value" : "Rose Garden",
+      "icon" : Icons.person,
+    },
+    {
+      "field_name": "CLASSE",
+      "field_value" : "Guerreira",
+      "icon": Icons.group_work,
+    },
+    {
+      "field_name": "HP/MP",
+      "field_value" : "200/400",
+      "icon" : Icons.healing,
+    }
+  ];
+
   int forca = 30;
 
   @override
@@ -39,87 +57,40 @@ class _PersonagensState extends State<Personagens> {
               height: 60,
               color: Colors.grey[600],
             ),
-            Row(
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(right: 10),
-                  child: Icon(Icons.person, color: Colors.grey, size: 20),
-                ),
-                Text(
-                  "NOME",
-                  style: TextStyle(
-                    color: Colors.grey,
-                    letterSpacing: 2,
-                    fontSize: 10,
+            Column(
+              children: charinfo.map((info) => Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(right: 10),
+                        child: Icon(info["icon"], color: Colors.grey, size: 20),
+                      ),
+                      Text(
+                        info["field_name"],
+                        style: TextStyle(
+                          color: Colors.grey,
+                          letterSpacing: 2,
+                          fontSize: 10,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: 10),
-            Text(
-              "Mills Molly",
-              style: TextStyle(
-                color: Colors.grey[200],
-                letterSpacing: 2,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 30),
-            Row(
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(right: 10),
-                  child: Icon(Icons.group_work, color: Colors.grey, size: 20),
-                ),
-                Text(
-                  "CLASSE",
-                  style: TextStyle(
-                    color: Colors.grey,
-                    letterSpacing: 2,
-                    fontSize: 10,
+                  SizedBox(height: 10),
+                  Text(
+                    info["field_value"],
+                    style: TextStyle(
+                      color: Colors.grey[200],
+                      letterSpacing: 2,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-              ],
+                  SizedBox(height: 30),
+                ],
+              )).toList(),
             ),
-            SizedBox(height: 10),
-            Text(
-              "Feiticeira",
-              style: TextStyle(
-                color: Colors.grey[200],
-                letterSpacing: 2,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 30),
-            Row(
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(right: 10),
-                  child: Icon(Icons.healing, color: Colors.grey, size: 20),
-                ),
-                Text(
-                  "HP/MP",
-                  style: TextStyle(
-                    color: Colors.grey,
-                    letterSpacing: 2,
-                    fontSize: 10,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 10),
-            Text(
-              "100 / 400",
-              style: TextStyle(
-                color: Colors.grey[200],
-                letterSpacing: 2,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 30),
             Row(
               children: <Widget>[
                 Expanded(
